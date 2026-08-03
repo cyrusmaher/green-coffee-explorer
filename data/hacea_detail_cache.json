@@ -1302,5 +1302,27 @@
     "tasting_notes": "Fragrance and aroma of cherry, chocolate and brown sugar. Up front notes of chocolate with a sweetness of molasses and florals. Aftertaste of dark chocolate with a mild citric acidity. Medium-heavy body and a creamy, almost fudge-like mouthfeel.",
     "roasting_notes": "This Honduran coffee is straightforward to roast. Average density and moisture content set this up to be fairly predictable. We love the brown sugar sweetness and other sugary notes in this coffee which are accentuated in the light-medium to medium-dark roast range (about 80 to 65 Agtron). The acidity is mellow, but present on the lighter end of that spectrum so the coffee really allows you to dial in the profile to meet your specific preferences.",
     "story": "In 2017 he acquired his second farm, Finca La Puerta. Ruben Portillo started farming coffee when he was 18 years old. Ruben’s farm is nestled in a remote section of the mountains outside of San Andrés with shade being provided by tall pine trees. The dropped pine needles provide constant organic matter and ground coverage to the soil but requires input from Ruben to balance the acidity in the soil. The entire farm is passed over twice by pickers. The fruit is put through a depulper within 24 hours and fermented in water for 12 hours before completely washing. The steep dirt road accessing the farm can easily become impassable with unexpected rains so the fully washed coffees are then transported to Mr Portillo’s house to dry just a couple of miles away from the farm. Target drying time is 15 days."
+  },
+  "https://haceacoffee.com/products/colombia-tolima-regional-excelso": {
+    "specs": {
+      "Country": "Colombia",
+      "Region": "Tolima",
+      "Coordinates": "4°15'36.0\"N 75°13'48.0\"W",
+      "Farm": "Multiple regional producers",
+      "Altitude": "1600-2200 m.a.s.l.",
+      "Grade": "Excelso",
+      "Varieties": "Castillo, Caturra",
+      "Processing": "Washed",
+      "Marks": "003-0037-2482",
+      "Reference ID": "HA-26126-02",
+      "Humidity": "11.90%",
+      "Density": "1.20 g/ml",
+      "Harvest Date": "April, 2026",
+      "Arrival Date": "July, 2026",
+      "SCI Cupping Score": "84.25"
+    },
+    "tasting_notes": "Fragrance of cherry, chocolate, and soft orange blossom with a wet aroma of dark chocolate and hazelnut.  The cup has flavors of rich chocolate, sweet panela sugar, and nougat.  A medium citric acidity is balanced with a heavy body and dark chocolate finish.",
+    "roasting_notes": "This washed Colombian coffee is incredibly versatile and lends itself to a multitude of roasting profiles.  At a lighter roast, the coffee will have a prominent juicy citric acidity and raw sugar sweetness.  To achieve this cup character, utilize a higher charge temperature and heavy heat application.  This is a high density washed coffee that can handle high heat.  At a medium roast, the coffee will exhibit more of the chocolate and nutty notes.  The raw sugar sweetness will transform into notes of caramel and the acidity will be reduced.  The dark chocolate finish will become more pronounced.  To achieve this cup profile, you will want to extend time spent in the caramelization (late Maillard) as well as extending the post crack development time.  This is also a coffee that will do very well in a dark roast.  The dark roast will bring forward the flavors of dark chocolate, deep caramelized sugars, roasted nuts, and some brown spice.  This cup profile will have muted acidity and a thinner body.  To achieve this cup profile, focus on extending the post crack development time with a steady rate of rise.  In the final stages of a dark roast, the coffee will need very little heat energy to continue the roasting process.",
+    "story": "Tolima is Colombia's third largest coffee producing department. Tolima takes its name from the Pijao word for \"snow river\" or \"cloud\". The Tolima department that spans nearly every tropical mountain climate, from glacial zones above 5,000 masl to warm valley floors around 400 masl. This lot is grown on volcanic ash soils between 1,600 and 2,200 masl, fully washed and dried on raised beds or patios following traditional practice. The combination of favorable growing conditions, soil characteristics, and careful wet milling and drying by the region's farmers gives Tolima coffee its clean, heavy bodied, sweet cup profile."
   }
 }
