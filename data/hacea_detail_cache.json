@@ -1369,5 +1369,74 @@
     "tasting_notes": "Fragrance and aroma of blackberry, dried fruit, and bakers chocolate.  Acidity is medium-low orange citric.  Coffee has a fruity character of fruit punch, dried cherry, and fruit snacks.  Finish has a lingering sweetness.  Body is heavy with a buttery mouthfeel.",
     "roasting_notes": "Robustas are inherently more bitter and have an acidity that can be a bit harsh.  At a lighter roast, Robusta will taste more like a dark roast due to the fact that the coffee starts with more chlorogynic acid than Arabica.  Robustas work great in dark roasts, but may be best suited to using a post roast blend.  In a post roast blend, you can roast the Robusta to a light-medium roast level and have the flavors match your darker roasted Arabica.  You can read more about roasting this coffee in our full Roast Approach: Robusta here.",
     "story": "Post-harvest processing Rooted in the environment The Family Kerehaklu Estate Anaerobic mossto-inoculated natural Cherries are inoculated with mossto made on the farm and fermented anoxically for 62 hours before being laid out to dry. Congusta is a Robusta varietal that is a hybrid of species Coffea congensis and Coffea canephora.  Congensis comes from the Congo and has a sweeter cup profile than the Robusta species.  The coffee was crossed with Robusta to improve yield and disease resistance.  The hybrid was developed in Dutch East Indies colonial coffee farms in Indonesia. [kay-ray-huck-loo] — noun Meaning: “Shelter by the lake,” from 11th–12th century Kannada language. Kerehaklu is a 250 acre family estate in Chikmagalur, nestled within the Western Ghats. The landscape is alive with rich biodiversity of flora, fauna, and fungi and is shaped by a history of cultivation that began in 1953. The estate is home to multiple Arabica varieties alongside Canephora selections as well as small plantings of Liberica and Excelsa. Kerehaklu is also an ecolodge and grows secondary crops like avocado, peppercorn and other seasonal produce. Ajoy- A fourth-generation coffee grower whose lifelong dedication has combined traditional knowledge with scientific practice. Pranoy - A biologist by training, Pranoy highlights the estate’s biodiversity while leading its post-harvest and processing focus, ensuring Kerehaklu coffees reach roasters worldwide. Prashun (alumnus) - After documenting wildlife on the estate, Prashun now works in conservation with Melbourne Water in Australia. Kivi- A loyal beagle and daily companion in the fields, often spotted alongside Pranoy and Ajoy. The work at Kerehaklu is rooted in conservation and coexistence. Each harvest reflects a careful balance between cultivation and the natural environment, where native microbes play a central role in fermentation. These microorganisms are unique to the estate’s soils and shape cup character while bringing a sense of place to each lot. Since 2019, the family has invested in infrastructure to refine post-harvest processing. From extended fermentations to experimental drying methods, their focus has been on elevating cup quality while preserving the estate’s ecological integrity. The result is a range of coffees that connect roasters to the biodiversity of the Western Ghats through both flavor and story."
+  },
+  "https://haceacoffee.com/products/colombia-risaralda-pereira-finca-milan-tangerine-orange-co-ferment": {
+    "specs": {
+      "Country": "Colombia",
+      "Region": "Pereira, Risarada",
+      "Coordinates": "Coming Soon",
+      "Farm": "Finca Milán",
+      "Farmer/Grower": "Julio César Madrid Tisnés and Julio Andrés Quiceno",
+      "Altitude": "1500 m.a.s.l.",
+      "Grade": "Product of Colombia",
+      "Varieties": "Caturra",
+      "Processing": "Anaerobic co-ferment, sequential washed",
+      "Marks": "003-0037-2892",
+      "Reference ID": "HA-26126-05",
+      "Humidity": "11.90%",
+      "Density": "1.15 g/ml",
+      "Harvest Date": "April, 2026",
+      "Arrival Date": "July, 2026",
+      "SCI Cupping Score": "86.0"
+    },
+    "tasting_notes": "Fragrance and aroma of chocolate and orange with notes of mandarin orange and orange blossom. Sweet orange candy-like aftertaste with a mild citric acidity and a medium body with a milky texture.",
+    "roasting_notes": "We recommend roasting this coffee at a light roast with a quick approach through Maillard reaction to pop the complex fruit acidity.  A shorter post crack development time will preserve the fresh sweetness.  In our experience, these types of alternative processed coffees can have a very quiet first crack.",
+    "story": "Finca Milán is a part of Café Uba, a coffee project built around two producers, Julio César Madrid Tisnés and Julio Andrés Quiceno Finca Milán has grown coffee since 1982. Café Uba's full operation includes four farms, a dry mill, a processing station, a roasting center, a cupping lab and a barista training lab. This lot uses Café Uba's culturing fermentation method, built around a fruit forward take on co-ferment. The coffee ferments together with a must of orange and pineapple, under restricted oxygen, for more than 144 hours. That mixed fermentation brings in fruit, aromatic plants, and a chosen mix of yeasts and bacteria, all working through the coffee together. The result is a sweet, fruity cup with tangerine, cinnamon, and orange blossom coming through, along with a soft tropical character that runs through the whole profile. After fermentation, the coffee dries on raised beds for 25 days, then finishes with five days of mechanical drying. Café Uba backs this work with outside research. Along with Cenicafé and Universidad de los Andes, the team published a study on the fermentation methods developed at Finca Milán, looking at how starter cultures change the microbial community during fermentation and the cup that results."
+  },
+  "https://haceacoffee.com/products/colombia-risaralda-pereira-finca-milan-caturra-nitro-watermelon-infused": {
+    "specs": {
+      "Country": "Colombia",
+      "Region": "Pereira, Risarada",
+      "Coordinates": "Coming Soon",
+      "Farm": "Finca Milán",
+      "Farmer/Grower": "Julio César Madrid Tisnés and Julio Andrés Quiceno",
+      "Altitude": "1500 m.a.s.l.",
+      "Grade": "Product of Colombia",
+      "Varieties": "Caturra",
+      "Processing": "Infused co-ferment, sequential washed",
+      "Marks": "003-0037-2891",
+      "Reference ID": "HA-26126-04",
+      "Humidity": "11.60%",
+      "Density": "1.11 g/ml",
+      "Harvest Date": "April, 2026",
+      "Arrival Date": "July, 2026",
+      "SCI Cupping Score": "86.5"
+    },
+    "tasting_notes": "Watermelon, watermelon, watermelon! This watermelon infusion/co-ferment delivers it’s namesake. We also note cantaloupe, watermelon candy and other melon notes with a mild lactic acidity and a medium body with a creamy mouthfeel.",
+    "roasting_notes": "We recommend roasting this coffee at a light roast with a quick approach through Maillard reaction to pop the complex fruit acidity.  A shorter post crack development time will preserve the fresh sweetness.  In our experience, these types of alternative processed coffees can have a very quiet first crack.",
+    "story": "Finca Milán is a part of Café Uba, a coffee project built around two producers, Julio César Madrid Tisnés and Julio Andrés Quiceno Finca Milán has grown coffee since 1982. Café Uba's full operation includes four farms, a dry mill, a processing station, a roasting center, a cupping lab and a barista training lab. This lot uses the Nitro process, Café Uba's own take on fermentation. The coffee ferments inside a bioreactor along with fruit must, starter cultures, and culturing lixiviates, while the oxygen inside gets replaced with nitrogen to create a modified atmosphere around the beans. The team tracks temperature, pH, and Brix levels throughout to keep the fermentation inside a defined range. Watermelon is part of the co-ferment on this lot, and it shows up clearly in the cup alongside cantaloupe and caramel notes. After fermentation, the coffee dries on raised beds for 25 days, then finishes with five days of mechanical drying. Café Uba backs this work with outside research. Along with Cenicafé and Universidad de los Andes, the team published a study on the fermentation methods developed at Finca Milán, looking at how starter cultures change the microbial community during fermentation and the cup that results."
+  },
+  "https://haceacoffee.com/products/colombia-caldas-finca-capri-wush-wush-washed": {
+    "specs": {
+      "Country": "Colombia",
+      "Region": "Manizales, Caldas",
+      "Coordinates": "Coming Soon",
+      "Farm": "Finca Capri",
+      "Farmer/Grower": "Julio César Madrid Tisnés and Julio Andrés Quiceno",
+      "Altitude": "2000 m.a.s.l.",
+      "Grade": "Product of Colombia",
+      "Varieties": "Wush Wush",
+      "Processing": "Anaerobic washed",
+      "Marks": "003-0037-2893",
+      "Reference ID": "HA-26126-06",
+      "Humidity": "11.80%",
+      "Density": "1.11 g/ml",
+      "Harvest Date": "April, 2026",
+      "Arrival Date": "July, 2026",
+      "SCI Cupping Score": "86.0"
+    },
+    "tasting_notes": "Fragrance and aroma of florals, pear and dark chocolate with notes of cocoa, florals and an aftertaste of yuzu. Nice brown sugar sweetness, bright citric and lactic acidity with a heavy body and juicy mouthfeel.",
+    "roasting_notes": "We recommend roasting this coffee at a light roast with a quick approach through Maillard reaction to pop the complex fruit acidity.  A shorter post crack development time will preserve the fresh sweetness.  In our experience, these types of alternative processed coffees can have a very quiet first crack.",
+    "story": "Finca Capri is a part of Café Uba, a coffee project built around two producers, Julio César Madrid Tisnés and Julio Andrés Quiceno Finca Capri sits at 2000 m.a.s.l. in the region of Caldas. Café Uba's full operation includes four farms, a dry mill, a processing station, a roasting center, a cupping lab and a barista training lab. Wush Wush is a delicate variety, and the team manages it at Finca Capri through selective pruning rather than stumping, which keeps the trees healthier and better suited to the plant's natural growth. From there, this lot follows the traditional washed process: the cherries are depulped, fermented for 18 hours, then washed clean. The coffee dries on raised beds for 25 days and finishes with five days of mechanical drying, a combination that lets the variety's citrus, floral, and caramel character come through clearly in the cup. Café Uba backs its work across every farm, Capri included, with the same research and documentation the team applies to its more experimental lots, published in partnership with Cenicafé and Universidad de los Andes."
   }
 }
