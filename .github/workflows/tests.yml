@@ -1,0 +1,22 @@
+name: Parser tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: cyrusmaher/coffee-explorer
+          path: shared-parsers
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r scraper/requirements.txt -r shared-parsers/scraper/requirements.txt pytest
+      - run: python -m pytest shared-parsers/tests tests --import-mode=importlib -q
+        env:
+          COFFEE_EXPLORER_ROOT: ${{ github.workspace }}/shared-parsers
+          PYTHONPATH: ${{ github.workspace }}/shared-parsers

@@ -1,46 +1,87 @@
-name: Scrape Sweet Maria's
+name: Scrape Green Coffee
 
 on:
   schedule:
-    - cron: '0 6 * * 1'  # Every Monday 6am UTC
-  workflow_dispatch:        # Manual trigger
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
+# All sources update this repository; serialize their checkout/commit/push cycle.
+concurrency:
+  group: green-coffee-publication
+  cancel-in-progress: false
+
 env:
-  GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
-  VERTEX_AI_LOCATION: global
-  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}  # fallback if not using Vertex AI
+  COFFEE_EXPLORER_ROOT: ${{ github.workspace }}/shared-parsers
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - source: sweetmarias
+            script: scrape.py
+            outputs: data/coffees.csv data/detail_cache.json docs/data.json
+          - source: cbc
+            script: scrape_cbc.py
+            outputs: data/cbc_coffees.csv data/cbc_detail_cache.json docs/cbc-data.json
+          - source: hacea
+            script: scrape_hacea.py
+            outputs: data/hacea_coffees.csv data/hacea_detail_cache.json docs/hacea-data.json
+          - source: royal
+            script: scrape_royal.py
+            outputs: data/royal_coffees.csv data/royal_detail_cache.json data/royal_infogram_cache.json docs/royal-data.json
+          - source: genuineorigin
+            script: scrape_genuineorigin.py
+            outputs: data/genuineorigin_coffees.csv docs/genuineorigin-data.json
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          # Each sequential matrix job starts from the preceding job's commit.
+          ref: ${{ github.ref_name }}
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Checkout shared roasted and green parsers
+        uses: actions/checkout@v4
+        with:
+          repository: cyrusmaher/coffee-explorer
+          ref: main
+          path: shared-parsers
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: |
-          pip install -r scraper/requirements.txt
-          python -m playwright install --with-deps chromium
+        run: pip install -r scraper/requirements.txt -r shared-parsers/scraper/requirements.txt pytest
+
+      - name: Test parsers
+        run: python -m pytest shared-parsers/tests tests --import-mode=importlib -q
+        env:
+          PYTHONPATH: ${{ github.workspace }}/shared-parsers
 
       - name: Run scraper
-        run: python scraper/scrape.py
+        run: python "scraper/$PARSER_SCRIPT"
+        env:
+          PARSER_SCRIPT: ${{ matrix.script }}
 
-      - name: Commit & push if data changed
+      - name: Commit and push validated data
+        env:
+          PARSER_OUTPUTS: ${{ matrix.outputs }}
+          PARSER_SOURCE: ${{ matrix.source }}
+          PARSER_BRANCH: ${{ github.ref_name }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ docs/data.json
-          if git diff --cached --quiet; then
-            echo "No data changes detected."
-          else
-            git commit -m "Update coffee data $(date -u +%Y-%m-%d)"
+          git add $PARSER_OUTPUTS
+          if ! git diff --cached --quiet; then
+            git commit -m "Update $PARSER_SOURCE coffee data [bot]"
+            git pull --rebase origin "$PARSER_BRANCH"
             git push
           fi

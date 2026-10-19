@@ -1,22 +1,11 @@
-"""
-Scraper for Hacea Coffee (haceacoffee.com) green coffee listings.
-Hybrid approach: Shopify JSON API for listing, Playwright for detail pages.
-
-Outputs:
-  - data/hacea_coffees.csv          Full dataset
-  - data/hacea_detail_cache.json    Cached detail-page extractions keyed by URL
-  - docs/hacea-data.json            All coffees with detail data (for GitHub Pages)
-"""
+"""Green coffee output adapter. Live storefront parsing is in coffee-explorer/scraper/green.py."""
 
 import csv
 import json
 import logging
 import sys
-import time
 from pathlib import Path
 
-import requests
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
 
 # Allow importing match_watchlist from same directory
 _SCRAPER_DIR = Path(__file__).resolve().parent
@@ -24,6 +13,7 @@ if str(_SCRAPER_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRAPER_DIR))
 
 from match_watchlist import WATCHLIST_FIELDS, match_products
+from scraper.storage import write_json as atomic_json
 
 logging.basicConfig(
     level=logging.INFO,
@@ -33,7 +23,6 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 BASE_URL = "https://haceacoffee.com"
-PRODUCTS_JSON_URL = f"{BASE_URL}/collections/green-coffee/products.json?limit=250"
 
 # Paths relative to repo root
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -69,166 +58,7 @@ def load_cache() -> dict:
 
 def save_cache(cache: dict) -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    CACHE_FILE.write_text(
-        json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
-
-
-# ---------- Listing via Shopify JSON API ----------
-
-def fetch_product_listing() -> list[dict]:
-    """Fetch all green coffee products from Shopify JSON API."""
-    log.info("Fetching product listing from Shopify JSON API...")
-    resp = requests.get(PRODUCTS_JSON_URL, timeout=30)
-    resp.raise_for_status()
-    data = resp.json()
-
-    products = data.get("products", [])
-    assert len(products) > 0, "No products returned from Shopify API"
-    log.info("Fetched %d products from Shopify API.", len(products))
-
-    listings = []
-    for p in products:
-        # Skip non-coffee products (e.g., "Roaster Seasoning Green Coffee")
-        tags = [t.strip() for t in p.get("tags", [])]
-
-        # Get the smallest variant price (500g)
-        variants = p.get("variants", [])
-        price = ""
-        if variants:
-            prices = [float(v["price"]) for v in variants if v.get("price")]
-            if prices:
-                price = f"${min(prices):.2f}"
-
-        # Extract country from tags
-        country = ""
-        known_countries = [
-            "Brazil", "Colombia", "Ethiopia", "Guatemala", "Costa Rica",
-            "El Salvador", "India", "Honduras", "Kenya", "Rwanda",
-            "Nicaragua", "Peru", "Mexico", "Panama", "Indonesia",
-            "Burundi", "Tanzania", "Uganda", "Yemen", "Bolivia",
-        ]
-        for tag in tags:
-            if tag in known_countries:
-                country = tag
-                break
-
-        # Get primary image
-        images = p.get("images", [])
-        image_url = images[0]["src"] if images else ""
-
-        url = f"{BASE_URL}/products/{p['handle']}"
-        listings.append({
-            "name": p["title"],
-            "handle": p["handle"],
-            "url": url,
-            "price": price,
-            "country": country,
-            "tags": ", ".join(tags),
-            "image_url": image_url,
-        })
-
-    return listings
-
-
-# ---------- Detail page extraction ----------
-
-DETAIL_JS = """() => {
-    const result = {};
-
-    // Tab 1 - Description specs
-    const tab1 = document.getElementById('tab1');
-    result.specs = {};
-    if (tab1) {
-        const paragraphs = tab1.querySelectorAll('p');
-        for (const p of paragraphs) {
-            const strong = p.querySelector('strong');
-            if (strong) {
-                const key = strong.textContent.trim().replace(/:$/, '');
-                // Get text after the strong tag
-                const fullText = p.textContent.trim();
-                const strongText = strong.textContent.trim();
-                const value = fullText.substring(strongText.length).trim();
-                result.specs[key] = value;
-            }
-        }
-    }
-
-    // Tab 2 - Tasting Notes
-    const tab2 = document.getElementById('tab2');
-    result.tasting_notes = tab2 ? tab2.textContent.trim() : '';
-
-    // Tab 3 - Roasting Notes
-    const tab3 = document.getElementById('tab3');
-    result.roasting_notes = tab3 ? tab3.textContent.trim() : '';
-
-    // Story sections from shopify sections below the tabs
-    const storyParts = [];
-
-    // image-with-text sections
-    const imageTextSections = document.querySelectorAll(
-        '.shopify-section--image-with-text'
-    );
-    for (const section of imageTextSections) {
-        const els = section.querySelectorAll('p, h2, h3, h4');
-        for (const el of els) {
-            const text = el.textContent.trim();
-            if (text.length > 10) storyParts.push(text);
-        }
-        // Also capture div-based headings (non-paragraph text blocks)
-        const divTexts = section.querySelectorAll(
-            '.block__heading, [class*="heading"], [class*="title"]'
-        );
-        for (const el of divTexts) {
-            const text = el.textContent.trim();
-            if (text.length > 5 && !storyParts.includes(text)) {
-                storyParts.unshift(text);
-            }
-        }
-    }
-
-    // rich-text-and-image sections
-    const richTextSections = document.querySelectorAll(
-        '.shopify-section--rich-text-and-image'
-    );
-    for (const section of richTextSections) {
-        const els = section.querySelectorAll('p, h2, h3, h4');
-        for (const el of els) {
-            const text = el.textContent.trim();
-            if (text.length > 10) storyParts.push(text);
-        }
-    }
-
-    result.story = storyParts.join(' ');
-
-    return result;
-}"""
-
-
-def extract_detail_data(page, url: str) -> dict:
-    """Visit a product detail page, return raw extracted data (cacheable)."""
-    try:
-        page.goto(url, wait_until="networkidle", timeout=60_000)
-    except PlaywrightTimeout:
-        log.warning("Timeout loading %s — trying domcontentloaded", url)
-        try:
-            page.goto(url, wait_until="domcontentloaded", timeout=30_000)
-            page.wait_for_timeout(3000)  # give JS time to render tabs
-        except PlaywrightTimeout:
-            log.warning("Second timeout loading %s — returning empty detail", url)
-            return {}
-
-    # Wait for tabs to be present
-    try:
-        page.wait_for_selector("#tab1", timeout=10_000)
-    except PlaywrightTimeout:
-        log.warning("No #tab1 found on %s — extracting what we can", url)
-
-    try:
-        return page.evaluate(DETAIL_JS)
-    except Exception as e:
-        log.warning("Error extracting detail from %s: %s", url, e)
-        return {}
+    atomic_json(CACHE_FILE, cache)
 
 
 # ---------- Record building ----------
@@ -293,71 +123,15 @@ def write_json(records: list[dict]) -> None:
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     # Include all coffees that have a price
     priced = [r for r in records if r.get("price")]
-    JSON_FILE.write_text(
-        json.dumps(priced, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
+    atomic_json(JSON_FILE, priced)
     log.info("Wrote %d coffees to %s", len(priced), JSON_FILE)
 
 
 # ---------- Main ----------
 
 def main():
-    cache = load_cache()
-
-    # Step 1: Fetch listing from Shopify JSON API (no browser needed)
-    listings = fetch_product_listing()
-    if not listings:
-        log.error("No products found from Shopify API. Exiting.")
-        sys.exit(1)
-
-    # Step 2: For each product, use cache or scrape detail page
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        context = browser.new_context(
-            user_agent=(
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/120.0.0.0 Safari/537.36"
-            )
-        )
-        page = context.new_page()
-
-        records = []
-        cache_hits = 0
-        cache_misses = 0
-        total = len(listings)
-
-        for i, listing in enumerate(listings, 1):
-            url = listing["url"]
-            if url in cache:
-                log.info("[%d/%d] CACHED: %s", i, total, listing["name"])
-                detail = cache[url]
-                cache_hits += 1
-            else:
-                log.info("[%d/%d] SCRAPING: %s", i, total, listing["name"])
-                detail = extract_detail_data(page, url)
-                cache[url] = detail
-                cache_misses += 1
-                time.sleep(1)  # polite delay
-
-            record = build_record(listing, detail)
-            records.append(record)
-
-        browser.close()
-
-    log.info("Cache: %d hits, %d misses", cache_hits, cache_misses)
-
-    # Step 3: Watchlist producer matching
-    match_products(records, corpus_fields=[
-        "name", "country", "farmer_grower", "cooperative", "story",
-    ])
-
-    # Step 4: Write all outputs
-    save_cache(cache)
-    write_csv(records)
-    write_json(records)
-
-    log.info("Done. %d total coffees.", len(records))
+    from shared_parser import run
+    run("hacea", globals())
 
 
 if __name__ == "__main__":

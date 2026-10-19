@@ -130,10 +130,10 @@ def _parse_llm_response(text: str) -> RoyalCoffeeExtracted:
 
     try:
         data = json.loads(cleaned)
-        return RoyalCoffeeExtracted(**data)
+        return RoyalCoffeeExtracted.model_validate(data)
     except (json.JSONDecodeError, ValidationError) as e:
         log.warning("Failed to parse LLM response: %s\nResponse: %s", e, text[:200])
-        return RoyalCoffeeExtracted(is_coffee_product=True)
+        raise ValueError("Invalid Royal extraction response") from e
 
 
 async def extract_royal_products(
@@ -148,7 +148,6 @@ async def extract_royal_products(
         dict mapping product URL -> RoyalCoffeeExtracted
     """
     cache = _load_cache()
-    client = _init_client()
     results: dict[str, RoyalCoffeeExtracted] = {}
     cache_hits = 0
     llm_calls = 0
@@ -170,7 +169,7 @@ async def extract_royal_products(
                 results[item["url"]] = RoyalCoffeeExtracted(**cache[cache_key])
                 cache_hits += 1
                 continue
-            except ValidationError:
+            except (ValidationError, TypeError):
                 pass
 
         if not text or len(text) < 50:
@@ -194,6 +193,7 @@ async def extract_royal_products(
         _save_cache(cache)
         return results
 
+    client = _init_client()
     sem = asyncio.Semaphore(CONCURRENCY)
     completed = 0
 
@@ -248,6 +248,9 @@ async def extract_royal_products(
             len(failed_jobs),
             list(failed_jobs.values())[:3],
         )
+
+    if failed_jobs:
+        raise RuntimeError(f"Royal extraction failed for {len(failed_jobs)} products; preserving published data")
 
     log.info(
         "[royal-llm] Extraction complete: %d items, %d LLM calls, %d cache hits, %d failures",
