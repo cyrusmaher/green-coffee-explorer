@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genuine Origin Coffee Explorer</title>
+<style>
+  :root {
+    --bg: #faf6f1;
+    --surface: #fff;
+    --border: #e0d5c7;
+    --text: #3b2f2f;
+    --text-muted: #7a6a5a;
+    --accent: #8b5e3c;
+    --accent-light: #c49a6c;
+    --highlight: #f5ebe0;
+    --row-hover: #fdf2e9;
+    --selected: #f0e0cc;
+    --score-low: #d4a373;
+    --score-mid: #b5835a;
+    --score-high: #6b4226;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--accent);
+    color: #fff;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .nav-tabs {
+    display: flex; align-items: flex-end; gap: 0.4rem; flex-wrap: wrap;
+  }
+  .nav-group {
+    display: flex; flex-direction: column; align-items: center; gap: 0.15rem;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px; padding: 0.25rem 0.4rem 0.35rem;
+  }
+  .nav-group-label {
+    font-size: 0.6rem; font-style: italic; opacity: 0.6;
+    letter-spacing: 0.03em;
+  }
+  .nav-group-tabs { display: flex; gap: 0.25rem; }
+  .nav-link {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .nav-link:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+  }
+  .nav-link.active {
+    background: rgba(255,255,255,0.25); color: #fff;
+    border-color: rgba(255,255,255,0.6); font-weight: 600;
+  }
+
+  #search {
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background: rgba(255,255,255,0.9);
+    color: var(--text);
+  }
+  #search::placeholder { color: var(--text-muted); }
+
+  #stats {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    white-space: nowrap;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  /* --- Table --- */
+  #table-container {
+    overflow-x: auto;
+    background: var(--surface);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background: var(--highlight);
+    border-bottom: 2px solid var(--border);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  thead th:hover { background: var(--selected); }
+  thead th .sort-arrow { margin-left: 4px; font-size: 0.7rem; }
+
+  tbody tr {
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  tbody tr:hover { background: var(--row-hover); }
+  tbody tr.selected { background: var(--selected); }
+  tbody tr:not(:last-child) td { border-bottom: 1px solid var(--border); }
+
+  td {
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
+  }
+  td.wrap { white-space: normal; max-width: 300px; }
+
+  /* --- Inline Detail Row --- */
+  .detail-row td {
+    padding: 0;
+    border-bottom: 2px solid var(--accent-light) !important;
+  }
+  .detail-inner {
+    padding: 1rem 1.25rem;
+    background: var(--highlight);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    animation: detailSlideIn 0.25s ease-out;
+    max-width: calc(100vw - 2rem); box-sizing: border-box; min-width: 0;
+  }
+  .detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+  .detail-header h3 {
+    font-size: 1.1rem;
+    color: var(--accent);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .detail-header a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .detail-header a:hover { text-decoration: underline; }
+  .detail-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.15rem; }
+  .detail-accolade {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.25rem;
+  }
+
+  .detail-specs {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+  .spec-item {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0.4rem;
+    min-width: 0;
+    align-items: flex-start;
+  }
+  .spec-label { font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+  .spec-value {
+    display: block;
+    color: var(--text); min-width: 0; white-space: normal;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+
+  /* --- Watchlist card expansion --- */
+  .watchlist-card.expanded {
+    grid-column: 1 / -1;
+    border-color: var(--accent-light);
+    box-shadow: 0 4px 16px rgba(139, 94, 60, 0.2);
+  }
+  .wc-detail {
+    width: 100%;
+    flex-basis: 100%;
+    border-top: 1px solid #e8d9a0;
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+    animation: detailSlideIn 0.25s ease-out;
+  }
+
+  @keyframes detailSlideIn {
+    from { opacity: 0; max-height: 0; padding-top: 0; margin-top: 0; }
+    to { opacity: 1; max-height: 800px; padding-top: 0.75rem; margin-top: 0.5rem; }
+  }
+
+  .notes-section { margin-bottom: 1rem; }
+  .notes-section h3 {
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+  .notes-section p {
+    font-size: 0.875rem;
+    color: var(--text);
+    line-height: 1.6;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* --- Watchlist badges --- */
+  .tier-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+  }
+  .tier-legend { background: #ffd700; color: #5a4700; }
+  .tier-coe-legend { background: #e8c547; color: #5a4700; }
+  .tier-wbc { background: #d4a574; color: #4a3520; }
+  .tier-coe { background: #c9b896; color: #4a3520; }
+  .tier-elite { background: #a8c4a0; color: #2d4a28; }
+  .tier-default { background: var(--border); color: var(--text-muted); }
+
+  .watchlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .watchlist-card {
+    background: #fdf8e8;
+    border: 1px solid #e8d9a0;
+    border-radius: 8px;
+    padding: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s, border-color 0.25s;
+    min-width: 0;
+  }
+  .watchlist-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .watchlist-card h4 {
+    font-size: 0.85rem; margin-bottom: 0.25rem; line-height: 1.35;
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .watchlist-card .wc-meta {
+    font-size: 0.75rem; color: var(--text-muted);
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+
+  #watchlist-section {
+    display: none;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+  #watchlist-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+  }
+
+  tr.watchlist-row { background: #fdf8e8 !important; }
+  tr.watchlist-row:hover { background: #f8f0d0 !important; }
+
+  /* --- Loading --- */
+  #loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+
+  /* --- Tablet / large phone --- */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column; align-items: stretch;
+      padding: 0.75rem 1rem; gap: 0.6rem;
+    }
+    header h1 { font-size: 1.2rem; }
+    .nav-tabs { gap: 0.3rem; }
+    .nav-link { font-size: 0.78rem; padding: 0.25rem 0.5rem; }
+    #search { max-width: none; min-width: 0; font-size: 0.9rem; }
+    #stats { font-size: 0.78rem; text-align: center; }
+    main { padding: 0.75rem; }
+    .watchlist-grid { grid-template-columns: 1fr; }
+    .watchlist-card { padding: 0.6rem; }
+    .detail-specs { grid-template-columns: 1fr; }
+    .detail-inner { padding: 0.75rem; }
+    .detail-header h3 { font-size: 0.95rem; }
+    table { font-size: 0.8rem; }
+    td { font-size: 0.8rem; padding: 0.4rem 0.5rem; white-space: normal; }
+    thead th { padding: 0.5rem; font-size: 0.78rem; }
+    /* Hide Varieties, Altitude columns on tablet */
+    td:nth-child(6), th:nth-child(6),
+    td:nth-child(7), th:nth-child(7) { display: none; }
+    td:first-child { white-space: normal; min-width: 120px; }
+  }
+
+  /* --- Small phone --- */
+  @media (max-width: 480px) {
+    header { padding: 0.6rem 0.75rem; gap: 0.5rem; }
+    header h1 { font-size: 1.05rem; }
+    .nav-group-label { font-size: 0.55rem; }
+    .nav-link { font-size: 0.72rem; padding: 0.2rem 0.4rem; }
+    #search { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+    main { padding: 0.5rem; }
+    .watchlist-card { padding: 0.5rem; }
+    .detail-inner { padding: 0.5rem; }
+    .detail-header h3 { font-size: 0.88rem; }
+    .detail-specs { gap: 0.3rem 0.5rem; font-size: 0.78rem; }
+    table { font-size: 0.75rem; }
+    td { font-size: 0.75rem; padding: 0.3rem 0.4rem; }
+    thead th { padding: 0.4rem; font-size: 0.72rem; }
+    .notes-section h3 { font-size: 0.8rem; }
+    .notes-section p { font-size: 0.78rem; }
+    #watchlist-section h2 { font-size: 0.95rem; }
+    /* Also hide Processing on small phones */
+    td:nth-child(5), th:nth-child(5) { display: none; }
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Coffee Explorer</h1>
+  <nav class="nav-tabs">
+    <a class="nav-link" href="https://cyrusmaher.github.io/coffee-explorer/">Roasted</a>
+    <div class="nav-group">
+      <span class="nav-group-label">green coffee</span>
+      <div class="nav-group-tabs">
+        <a class="nav-link" href="index.html">Sweet Maria's</a>
+        <a class="nav-link" href="hacea.html">Hacea</a>
+        <a class="nav-link" href="cbc.html">CBC</a>
+        <a class="nav-link" href="royal.html">Royal</a>
+        <a class="nav-link active">Genuine Origin</a>
+      </div>
+    </div>
+  </nav>
+  <input type="text" id="search" placeholder="Search coffees (e.g. &quot;chocolate&quot;, &quot;Ethiopia&quot;, &quot;natural&quot;)...">
+  <span id="stats"></span>
+</header>
+
+<main>
+  <div id="loading">Loading coffee data...</div>
+
+  <section id="watchlist-section">
+    <h2>Watchlist Matches <span id="watchlist-count"></span></h2>
+    <div id="watchlist-grid" class="watchlist-grid"></div>
+  </section>
+
+  <div id="table-container">
+    <table>
+      <thead><tr id="table-head"></tr></thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+</main>
+
+<script>
+/* ---------- Config ---------- */
+const TABLE_COLS = [
+  { key: "name",              label: "Name",        wrap: true },
+  { key: "price",             label: "Price",       sort: "price" },
+  { key: "sca_cupping_score", label: "SCA Score",   sort: "num" },
+  { key: "country",           label: "Country" },
+  { key: "processing",        label: "Processing" },
+  { key: "varieties",         label: "Varieties",   wrap: true },
+  { key: "altitude",          label: "Altitude" },
+];
+
+const SPEC_FIELDS = [
+  { key: "price_per_pound", label: "Price / lb" },
+  { key: "box_price", label: "65lb Box Price" },
+  { key: "sca_cupping_score", label: "SCA Score" },
+  { key: "country", label: "Country" },
+  { key: "region", label: "Region" },
+  { key: "producer", label: "Producer" },
+  { key: "varieties", label: "Varieties" },
+  { key: "processing", label: "Processing" },
+  { key: "altitude", label: "Altitude (m)" },
+  { key: "body", label: "Body" },
+  { key: "acidity", label: "Acidity" },
+  { key: "harvest_date", label: "Harvest" },
+  { key: "coffee_type", label: "Availability" },
+  { key: "in_stock", label: "In Stock" },
+  { key: "package_sizes", label: "Package Sizes" },
+  { key: "reference_id", label: "SKU" },
+];
+
+/* ---------- State ---------- */
+let allCoffees = [];
+let filtered = [];
+let searchIndex = null;
+let sortCol = "sca_cupping_score";
+let sortDir = -1;  // descending — SCA score is the headline feature
+let selectedId = -1;
+
+/* ---------- Data loading ---------- */
+fetch("genuineorigin-data.json")
+  .then(r => {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  })
+  .then(data => {
+    allCoffees = data.map((c, i) => ({ ...c, _idx: i }));
+    searchIndex = lunr(function() {
+      this.field('name', { boost: 3 });
+      this.field('country', { boost: 2 });
+      this.field('region');
+      this.field('varieties');
+      this.field('processing');
+      this.field('producer');
+      this.field('flavor_notes');
+      this.field('body');
+      this.field('acidity');
+      this.field('story');
+      this.field('watchlist_match');
+      this.field('watchlist_credential_detail');
+      this.ref('_idx');
+      allCoffees.forEach(c => { this.add(c); });
+    });
+    filtered = [...allCoffees];
+    document.getElementById("loading").style.display = "none";
+    renderWatchlist();
+    buildTableHead();
+    sortAndRender();
+    const query = new URLSearchParams(location.search).get("q");
+    if (query) {
+      const search = document.getElementById("search");
+      search.value = query;
+      search.dispatchEvent(new Event("input"));
+    }
+  })
+  .catch(err => {
+    document.getElementById("loading").textContent = "Failed to load data: " + err.message;
+  });
+
+/* ---------- Search ---------- */
+document.getElementById("search").addEventListener("input", function() {
+  const q = this.value.trim();
+  if (!q) {
+    filtered = [...allCoffees];
+  } else if (searchIndex) {
+    try {
+      const stemmed = searchIndex.search(q);
+      const wildcard = searchIndex.search(q + '*');
+      const idxSet = new Set([...stemmed, ...wildcard].map(r => parseInt(r.ref)));
+      filtered = allCoffees.filter(c => idxSet.has(c._idx));
+    } catch {
+      const ql = q.toLowerCase();
+      filtered = allCoffees.filter(c =>
+        Object.values(c).some(v => String(v).toLowerCase().includes(ql))
+      );
+    }
+  }
+  selectedId = -1;
+  sortAndRender();
+});
+
+/* ---------- Table head ---------- */
+function buildTableHead() {
+  const tr = document.getElementById("table-head");
+  tr.innerHTML = "";
+  TABLE_COLS.forEach(col => {
+    const th = document.createElement("th");
+    th.textContent = col.label;
+    th.dataset.key = col.key;
+    if (col.key === sortCol) {
+      th.innerHTML += '<span class="sort-arrow">' + (sortDir > 0 ? "\u25B2" : "\u25BC") + '</span>';
+    }
+    th.addEventListener("click", () => {
+      if (sortCol === col.key) {
+        sortDir *= -1;
+      } else {
+        sortCol = col.key;
+        sortDir = col.key === "name" ? 1 : -1;
+      }
+      sortAndRender();
+    });
+    tr.appendChild(th);
+  });
+}
+
+/* ---------- Sorting ---------- */
+function sortVal(c, key) {
+  const v = c[key] || "";
+  if (key === "price" || key === "price_per_pound" || key === "box_price") {
+    return parseFloat(String(v).replace("$", "")) || 0;
+  }
+  if (key === "sca_cupping_score") {
+    return parseFloat(v) || 0;
+  }
+  if (key === "altitude") {
+    // Compare ranges by their lower bound, in meters.
+    const number = String(v).replace(/,/g, "").match(/\d+(?:\.\d+)?/);
+    return number ? Number(number[0]) : 0;
+  }
+  return String(v).toLowerCase();
+}
+
+function sortAndRender() {
+  filtered.sort((a, b) => {
+    const va = sortVal(a, sortCol);
+    const vb = sortVal(b, sortCol);
+    if (va < vb) return -1 * sortDir;
+    if (va > vb) return 1 * sortDir;
+    return 0;
+  });
+  renderTable();
+  buildTableHead();
+  const wlCount = filtered.filter(c => c.watchlist_match).length;
+  document.getElementById("stats").textContent =
+    filtered.length + " coffees" + (wlCount ? " (" + wlCount + " watchlist)" : "");
+}
+
+/* ---------- Table body ---------- */
+function renderTable() {
+  const tbody = document.getElementById("table-body");
+  tbody.innerHTML = "";
+  filtered.forEach(c => {
+    const tr = document.createElement("tr");
+    if (c._idx === selectedId) tr.classList.add("selected");
+    if (c.watchlist_match) tr.classList.add("watchlist-row");
+    TABLE_COLS.forEach(col => {
+      const td = document.createElement("td");
+      if (col.key === "name" && c.watchlist_match) {
+        td.innerHTML = esc(c[col.key] || "") + " " + tierBadgeHTML(c.watchlist_tier);
+      } else {
+        td.textContent = c[col.key] || "";
+      }
+      if (col.wrap) td.classList.add("wrap");
+      tr.appendChild(td);
+    });
+    tr.addEventListener("click", () => showDetail(c._idx));
+    tbody.appendChild(tr);
+
+    if (c._idx === selectedId) {
+      const detailTr = document.createElement("tr");
+      detailTr.className = "detail-row";
+      const detailTd = document.createElement("td");
+      detailTd.colSpan = TABLE_COLS.length;
+      detailTd.innerHTML = buildDetailHTML(c);
+      detailTr.appendChild(detailTd);
+      tbody.appendChild(detailTr);
+    }
+  });
+}
+
+/* ---------- Detail panel ---------- */
+function showDetail(coffeeId) {
+  selectedId = selectedId === coffeeId ? -1 : coffeeId;
+  renderTable();
+  buildTableHead();
+}
+
+function buildDetailHTML(c) {
+  let nameHtml = esc(c.name);
+  if (c.watchlist_match) nameHtml += " " + tierBadgeHTML(c.watchlist_tier);
+
+  let accolade = "";
+  if (c.watchlist_match) {
+    accolade = '<strong>' + esc(c.watchlist_match) + '</strong>';
+    if (c.watchlist_farm) accolade += ' — ' + esc(c.watchlist_farm);
+    if (c.watchlist_credential_detail) accolade += '<br>' + esc(c.watchlist_credential_detail);
+  }
+
+  const specsHtml = SPEC_FIELDS
+    .filter(f => c[f.key])
+    .map(f => '<div class="spec-item"><span class="spec-label">' + esc(f.label) + ':</span><span class="spec-value">' + esc(c[f.key]) + '</span></div>')
+    .join("");
+
+  let notesHtml = "";
+  if (c.flavor_notes) {
+    notesHtml += '<div class="notes-section"><h3>Flavor Notes</h3><p>' + esc(c.flavor_notes) + '</p></div>';
+  }
+  if (c.story) {
+    notesHtml += '<div class="notes-section"><h3>Origin Story</h3><p>' + esc(c.story) + '</p></div>';
+  }
+
+  let links = '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">View on Genuine Origin \u2192</a>';
+  if (c.factsheet_url) {
+    links += '<a href="' + esc(c.factsheet_url) + '" target="_blank" rel="noopener">Factsheet (PDF) \u2192</a>';
+  }
+
+  return '<div class="detail-inner">' +
+    '<div class="detail-header">' +
+      '<div><h3>' + nameHtml + '</h3>' +
+        '<div class="detail-links">' + links + '</div>' +
+        (accolade ? '<div class="detail-accolade">' + accolade + '</div>' : '') +
+      '</div>' +
+    '</div>' +
+    '<div class="detail-specs">' + specsHtml + '</div>' +
+    notesHtml +
+  '</div>';
+}
+
+/* ---------- Watchlist helpers ---------- */
+function tierBadgeClass(tier) {
+  if (!tier) return "";
+  const t = tier.toLowerCase();
+  if (t === "legend") return "tier-legend";
+  if (t.includes("coe legend")) return "tier-coe-legend";
+  if (t.includes("wbc")) return "tier-wbc";
+  if (t.includes("coe") || t.includes("bop")) return "tier-coe";
+  if (t.includes("elite")) return "tier-elite";
+  return "tier-default";
+}
+
+function tierBadgeHTML(tier) {
+  if (!tier) return "";
+  return '<span class="tier-badge ' + tierBadgeClass(tier) + '">' + esc(tier) + '</span>';
+}
+
+function renderWatchlist() {
+  const matched = allCoffees.filter(c => c.watchlist_match);
+  const section = document.getElementById("watchlist-section");
+  if (matched.length === 0) { section.style.display = "none"; return; }
+
+  const tierOrder = { "Legend": 0, "CoE Legend": 1, "WBC Elite": 2, "CoE Winner": 3, "Ethiopia Elite": 4 };
+  matched.sort((a, b) => (tierOrder[a.watchlist_tier] ?? 99) - (tierOrder[b.watchlist_tier] ?? 99));
+
+  document.getElementById("watchlist-count").textContent = "(" + matched.length + ")";
+  const grid = document.getElementById("watchlist-grid");
+  grid.innerHTML = matched.map(c => {
+    const price = c.price || "";
+    return '<div class="watchlist-card">' +
+      '<h4>' + esc(c.name) + ' ' + tierBadgeHTML(c.watchlist_tier) + '</h4>' +
+      '<div class="wc-meta">' +
+        (price ? esc(price) + ' · ' : '') +
+        esc(c.watchlist_match) +
+        (c.watchlist_farm ? ' — ' + esc(c.watchlist_farm) : '') +
+      '</div>' +
+      (c.watchlist_credential_detail ? '<div class="wc-meta">' + esc(c.watchlist_credential_detail) + '</div>' : '') +
+    '</div>';
+  }).join("");
+
+  grid.querySelectorAll(".watchlist-card").forEach((card, index) => {
+    card.addEventListener("click", () => toggleWatchlistDetail(card, matched[index].url));
+  });
+  section.style.display = "block";
+}
+
+function toggleWatchlistDetail(cardEl, url) {
+  const existing = cardEl.querySelector('.wc-detail');
+  if (existing) {
+    existing.remove();
+    cardEl.classList.remove('expanded');
+    return;
+  }
+  document.querySelectorAll('.wc-detail').forEach(el => el.remove());
+  document.querySelectorAll('.watchlist-card.expanded').forEach(el => el.classList.remove('expanded'));
+
+  const c = allCoffees.find(p => p.url === url);
+  if (!c) return;
+
+  const grid = cardEl.parentElement;
+  const cols = Math.max(1, Math.floor(grid.offsetWidth / 290));
+  const cards = [...grid.querySelectorAll('.watchlist-card')];
+  const idx = cards.indexOf(cardEl);
+  const rowStart = Math.floor(idx / cols) * cols;
+  for (let i = rowStart; i < idx; i++) {
+    cardEl.after(cards[i]);
+  }
+
+  cardEl.classList.add('expanded');
+  const div = document.createElement('div');
+  div.className = 'wc-detail';
+  div.innerHTML = buildDetailHTML(c);
+  div.addEventListener('click', e => e.stopPropagation());
+  cardEl.appendChild(div);
+}
+
+function esc(s) {
+  const d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML.replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+
+/* Carry the search query across coffee-source tabs. */
+document.getElementById("search").addEventListener("input", () => {
+  const url = new URL(location);
+  const value = document.getElementById("search").value;
+  if (value) url.searchParams.set("q", value);
+  else url.searchParams.delete("q");
+  history.replaceState(null, "", url);
+});
+document.querySelectorAll(".nav-tabs a.nav-link[href]").forEach(link => {
+  link.addEventListener("click", () => {
+    const url = new URL(link.href, location.href);
+    url.search = location.search;
+    link.href = url.toString();
+  });
+});
+
+</script>
+</body>
+</html>
