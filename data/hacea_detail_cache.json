@@ -1,8 +1,8 @@
 {
   "https://haceacoffee.com/products/brazil-minas-gerais-luzia-natural-1": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017182.494246,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631057.331322,
     "detail": {
       "specs": {
         "Country": "Brazil",
@@ -35,8 +35,8 @@
   },
   "https://haceacoffee.com/products/colombia-ea-sugarcane-decaf": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017183.0216599,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631057.9178827,
     "detail": {
       "specs": {
         "Country": "Colombia",
@@ -115,8 +115,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-guji-fire-g3-natural-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017183.7837777,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631058.686367,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -144,8 +144,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-guji-shakiso-gigesa-natural-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017184.4877279,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631059.555321,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -173,8 +173,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-yirgacheffe-aricha-adorsi-washed-2": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017186.107738,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631061.7303505,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -225,8 +225,8 @@
   },
   "https://haceacoffee.com/products/guatemala-finca-el-socorro-juan-diego-de-la-cerda-maracaturra": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017185.3299718,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631060.215229,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -354,8 +354,8 @@
   },
   "https://haceacoffee.com/products/el-salvador-finca-colomba-agua-nueva-bourbon-semi-wash-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017186.748565,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631061.0521863,
     "detail": {
       "specs": {
         "Country": "El Salvador",
@@ -383,29 +383,38 @@
     }
   },
   "https://haceacoffee.com/products/guatemala-antigua-rosario-bourbon-stuardo-coto": {
-    "specs": {
-      "Country": "Guatemala",
-      "Region": "San Cristobal el Bajo aldea, Antigua Municipality",
-      "Farmer/Grower": "Stuardo Coto",
-      "Farm": "Jauja",
-      "Coordinates": "14° 32' 32.5651\" N 94° 50' 56.6887\" W",
-      "Lot ID": "Rosario",
-      "Varieties": "Bourbon",
-      "Grade": "SHB",
-      "Processing": "Washed",
-      "Altitude": "1550-1580 m.a.s.l.",
-      "Marks": "011-0890-0169",
-      "Reference ID": "HA-25235-02",
-      "Humidity": "11.00%",
-      "Density": "1.16 g/ml",
-      "Harvest Date": "March, 2025",
-      "Arrival Date": "September, 2025",
-      "SCA Cupping Score": "85.00",
-      "Tariff Cost": "$0.43/lb"
-    },
-    "tasting_notes": "Fragrance and aroma of brown sugar and lavender with notes of milk chocolate, green apple and marshmallow sweetness. Aftertaste of brown sugar, graham cracker and florals. Mild malic acidity and medium body with soft, milky mouthfeel.",
-    "roasting_notes": "This is an extremely versatile coffee. This high density washed coffee can take the heat. Roasted into the medium roast range will highlight the chocolate and graham cracker notes that come through really nicely with the marshmallow sweetness.",
-    "story": "Antigua is surrounded by 3 volcanoes The Rosario plot is located in the San Cristobal el Bajo aldea centrally located in the municipality of Antigua. Volcan de Agua, Volcan de Acatenango, and Volcan de Fuego (which is still active) can all be seen from the farm. Old bourbon cultivars are grown under partial shade from grevillea and avocado trees. The rich volcanic soil, warm days and cool nights and high winds give Antigua a unique microclimate that has been highly sought after for many years. The fully washed coffees are fermented in water for 24 to 36 hours, pending weather conditions. After fermentation, the coffee is dried for 6 to 9 days on concrete patios. Each day-lot is cupped by the Coto Quality Control team and separated by cup profile. Antigua Guatemala has a long history and was the first region to grow coffee as an ornamental plant in Jesuit convents before becoming a livelihood. The farm is one of the oldest coffee farms in Guatemala. The Rosario plot is a family jewel that has been cultivated through generations. Panorama’s production team led by Stuardo Coto is now working together with the land owner to produce and revive the farm for many generations to come, while yielding an excellent cup result."
+    "version": 1,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631063.2388427,
+    "detail": {
+      "specs": {
+        "Country": "Guatemala",
+        "Region": "San Cristobal el Bajo aldea, Antigua Municipality",
+        "Farm": "Rosario",
+        "Coordinates": "14° 32' 32.5651\" N 94° 50' 56.6887\" W",
+        "Grower": "Stuardo Coto",
+        "Elevation": "1550-1580 m.a.s.l.",
+        "Variety": "Bourbon",
+        "Processing": "Washed",
+        "Harvest date": "March 2026",
+        "Arrival date": "August 2026",
+        "Density": "1.15 g/ml",
+        "Humidity": "11.20%",
+        "Grade": "SHB",
+        "Marks": "011-0890-0225",
+        "Reference ID": "HA-26134-06",
+        "SCI cupping score": "84.75",
+        "Farmer/Grower": "Stuardo Coto",
+        "Altitude": "1550-1580 m.a.s.l.",
+        "Varieties": "Bourbon",
+        "Harvest Date": "March 2026",
+        "Arrival Date": "August 2026",
+        "SCA Cupping Score": "84.75"
+      },
+      "tasting_notes": "Fragrance and aroma of baker’s chocolate and milk chocolate. Notes of lilac and milk chocolate with an aftertaste of cinnamon and cocoa powder with brown sugar sweetness. Mild citric acidity with a creamy mouthfeel and medium-heavy body.",
+      "roasting_notes": "This is an extremely versatile coffee. This high density washed coffee can take the heat. Roasted into the medium roast range will highlight the chocolate and graham cracker notes that come through really nicely with the marshmallow sweetness.",
+      "story": ""
+    }
   },
   "https://haceacoffee.com/products/costa-rica-hacienda-sonora-diego-guardia-victoria-14-natural-2025": {
     "specs": {
@@ -432,8 +441,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-sidama-ayla-bombe-natural-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017188.2944405,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631062.4538486,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -601,8 +610,8 @@
   },
   "https://haceacoffee.com/products/guatemala-antigua-el-pesadero-jauja-stuardo-coto": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017191.262657,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631066.9431486,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -631,8 +640,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-sidama-ayla-shantawene-washed-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017189.7514598,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631064.766434,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -682,8 +691,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-yirgacheffe-aricha-adorsi-premium-black-honey-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017195.7766168,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631069.9851453,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -712,8 +721,8 @@
   },
   "https://haceacoffee.com/products/india-ratnagiri-estate-godown-patte-catuai-cavery-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017194.985739,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631069.1675844,
     "detail": {
       "specs": {
         "Country": "India",
@@ -741,8 +750,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-west-arsi-werka-nensebo-washed-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017198.733462,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631074.431476,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -770,8 +779,8 @@
   },
   "https://haceacoffee.com/products/india-ratnagiri-estate-kere-patte-anaerobic-mossto-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017189.0286744,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631064.0017984,
     "detail": {
       "specs": {
         "Country": "India",
@@ -799,8 +808,8 @@
   },
   "https://haceacoffee.com/products/india-ratnagiri-estate-giri-patte-catuai-sequential-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017197.2315419,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631072.3020089,
     "detail": {
       "specs": {
         "Country": "India",
@@ -828,8 +837,8 @@
   },
   "https://haceacoffee.com/products/guatemala-palencia-finca-la-pia-la-aurora-washed-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017200.2566884,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631075.172926,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -880,8 +889,8 @@
   },
   "https://haceacoffee.com/products/india-kerehaklu-s9-blossom-cultured-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017205.562978,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631078.9710789,
     "detail": {
       "specs": {
         "Country": "India",
@@ -939,8 +948,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-sidama-arbegona-duwancho-premium-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017204.0040216,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631078.248724,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -1037,8 +1046,8 @@
   },
   "https://haceacoffee.com/products/guatemala-acatenango-finca-el-mirador-stuardo-coto-gesha-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017201.745497,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631075.9724627,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -1064,8 +1073,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-sidama-arbegona-duwancho-premium-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017213.0288079,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631087.2271032,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -1093,8 +1102,8 @@
   },
   "https://haceacoffee.com/products/guatemala-acatenango-finca-el-mirador-stuardo-coto-pacamara-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017203.203052,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631077.500697,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -1120,8 +1129,8 @@
   },
   "https://haceacoffee.com/products/guatemala-acatenango-finca-el-mirador-stuardo-coto-pacamara-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017207.0363383,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631080.3931007,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -1193,8 +1202,8 @@
   },
   "https://haceacoffee.com/products/guatemala-santa-rosa-finca-santa-ana-tafari-lavado-17t8": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017208.4796398,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631082.7187226,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -1221,8 +1230,8 @@
   },
   "https://haceacoffee.com/products/ecuador-loja-la-noria-green-gesha-lot-3-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017212.285937,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631086.4850464,
     "detail": {
       "specs": {
         "Country": "Ecuador",
@@ -1249,8 +1258,8 @@
   },
   "https://haceacoffee.com/products/ecuador-loja-el-dorado-green-gesha-lot-1-anaerobic-washed-double-fermented-3x3": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017207.7382631,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631081.9461584,
     "detail": {
       "specs": {
         "Country": "Ecuador",
@@ -1283,8 +1292,8 @@
   },
   "https://haceacoffee.com/products/swiss-water-decaf-rwanda-nyamasheke-muhororo-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017196.485832,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631070.7374058,
     "detail": {
       "specs": {
         "Country": "Rwanda",
@@ -1311,8 +1320,8 @@
   },
   "https://haceacoffee.com/products/rwanda-nyamasheke-muhororo-natural-1": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017202.556531,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631076.6545715,
     "detail": {
       "specs": {
         "Country": "Rwanda",
@@ -1339,8 +1348,8 @@
   },
   "https://haceacoffee.com/products/rwanda-nyamasheke-muhororo-ireme-anaerobic-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017193.5434363,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631068.59537,
     "detail": {
       "specs": {
         "Country": "Rwanda",
@@ -1367,8 +1376,8 @@
   },
   "https://haceacoffee.com/products/rwanda-nyamasheke-muhororo-washed-1": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017210.0226011,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631083.443519,
     "detail": {
       "specs": {
         "Country": "Rwanda",
@@ -1395,8 +1404,8 @@
   },
   "https://haceacoffee.com/products/burundi-kayanza-nemba-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017199.5382156,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631073.7256722,
     "detail": {
       "specs": {
         "Country": "Burundi",
@@ -1422,8 +1431,8 @@
   },
   "https://haceacoffee.com/products/el-salvador-ahuachapan-apaneca-finca-la-fany-pacamara-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017210.722943,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631084.9667635,
     "detail": {
       "specs": {
         "Country": "El Salvador",
@@ -1450,8 +1459,8 @@
   },
   "https://haceacoffee.com/products/honduras-lempira-san-andres-finca-la-puerta-ruben-portillo-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017201.0818443,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631072.9068785,
     "detail": {
       "specs": {
         "Country": "Honduras",
@@ -1479,8 +1488,8 @@
   },
   "https://haceacoffee.com/products/colombia-tolima-regional-excelso": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017192.72785,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631067.776714,
     "detail": {
       "specs": {
         "Country": "Colombia",
@@ -1508,8 +1517,8 @@
   },
   "https://haceacoffee.com/products/el-salvador-finca-colomba-oro-tinto-robusta-especial-honey-2": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017214.5068936,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631087.9142911,
     "detail": {
       "specs": {
         "Country": "El Salvador",
@@ -1537,8 +1546,8 @@
   },
   "https://haceacoffee.com/products/india-kerehaklu-estate-robusta-congusta-62hr-anoxic-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017215.1897075,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631088.7156575,
     "detail": {
       "specs": {
         "Country": "India",
@@ -1589,8 +1598,8 @@
   },
   "https://haceacoffee.com/products/colombia-risaralda-pereira-finca-milan-caturra-nitro-watermelon-infused": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017192.0219445,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631066.2537363,
     "detail": {
       "specs": {
         "Country": "Colombia",
@@ -1618,8 +1627,8 @@
   },
   "https://haceacoffee.com/products/colombia-caldas-finca-capri-wush-wush-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017206.188011,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631079.663071,
     "detail": {
       "specs": {
         "Country": "Colombia",
@@ -1647,8 +1656,8 @@
   },
   "https://haceacoffee.com/products/guatemala-huehuetenango-her-coffee-1": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017213.7948084,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631085.6794934,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -1675,8 +1684,8 @@
   },
   "https://haceacoffee.com/products/costa-rica-hacienda-sonora-diego-guardia-caturra-natural-2025": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017190.5685706,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631065.4293652,
     "detail": {
       "specs": {
         "Country": "Costa Rica",
@@ -1704,8 +1713,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-yirgacheffe-kochere-g1-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017197.9886675,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631071.5757275,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -1732,8 +1741,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-guji-hambela-grade-1-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017209.2794466,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631081.1559188,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -1760,8 +1769,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-yirgacheffe-halo-beriti-grade-1-washed": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017211.5541892,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631084.1936007,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -1816,8 +1825,8 @@
   },
   "https://haceacoffee.com/products/guatemala-huehuetenango-chqul-armando-gomez-sauco-2": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017218.28431,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631091.7287533,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -1846,8 +1855,8 @@
   },
   "https://haceacoffee.com/products/guatemala-huehuetenango-cooperative-asodiett-txol-xaq-2": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017219.0543785,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631093.2077224,
     "detail": {
       "specs": {
         "Country": "Guatemala",
@@ -1875,8 +1884,8 @@
   },
   "https://haceacoffee.com/products/el-salvador-finca-colomba-agua-nueva-bourbon-semi-wash-26": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017216.7109897,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631090.1465473,
     "detail": {
       "specs": {
         "Country": "El Salvador",
@@ -1904,8 +1913,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-west-arsi-werka-nensebo-natural-26": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017215.985578,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631089.4093974,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -1938,8 +1947,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-guji-fire-g3-natural-2026": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017217.5167058,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631090.974422,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -1967,8 +1976,8 @@
   },
   "https://haceacoffee.com/products/el-salvador-finca-el-angel-pacamara-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017219.8157282,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631092.4446747,
     "detail": {
       "specs": {
         "Country": "El Salvador",
@@ -2000,8 +2009,8 @@
   },
   "https://haceacoffee.com/products/el-salvador-finca-el-angel-sl-28-natural": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017220.5224066,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631093.8873732,
     "detail": {
       "specs": {
         "Country": "El Salvador",
@@ -2033,8 +2042,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-yirgacheffe-aricha-adorsi-washed-2026": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017221.270025,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631095.4281998,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -2067,8 +2076,8 @@
   },
   "https://haceacoffee.com/products/ethiopia-yirgacheffe-aricha-adorsi-natural-2026": {
     "version": 1,
-    "updated_at": "2026-10-26T05:19:41-07:00",
-    "fetched_at": 1793017222.0265846,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631094.7049026,
     "detail": {
       "specs": {
         "Country": "Ethiopia",
@@ -2095,6 +2104,74 @@
         "SCA Cupping Score": "86.50"
       },
       "tasting_notes": "Fragrance and aroma of cherry, lime and strawberry. Notes of cherry and orange followed by blackberry and a ripe fruit sweetness. Medium citric and malic acidity with a creamy mouthfeel and heavy body.",
+      "roasting_notes": "Coming soon.",
+      "story": ""
+    }
+  },
+  "https://haceacoffee.com/products/ethiopia-guji-shakiso-gigesa-g1-washed": {
+    "version": 1,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631096.2282674,
+    "detail": {
+      "specs": {
+        "Country": "Ethiopia",
+        "Region": "Shakiso, Danbi Uddo Kebele, Shakiso District, Guji Zone, Oromia",
+        "Washing Station": "Gigesa Washing Station",
+        "Coordinates": "5°47'38.5\"N 38°43'59.2\"E",
+        "Grower": "500 smallholder farmers",
+        "Elevation": "1850-2100 m.a.s.l.",
+        "Variety": "Heirloom",
+        "Processing": "Washed",
+        "Harvest date": "January 2026",
+        "Arrival date": "August 2026",
+        "Density": "1.17 g/ml",
+        "Humidity": "10.60%",
+        "Grade": "Grade 1",
+        "Marks": "010-0276-0987",
+        "Reference ID": "HA-26120-07",
+        "SCI cupping score": "86.50",
+        "Farmer/Grower": "500 smallholder farmers",
+        "Altitude": "1850-2100 m.a.s.l.",
+        "Varieties": "Heirloom",
+        "Harvest Date": "January 2026",
+        "Arrival Date": "August 2026",
+        "SCA Cupping Score": "86.50"
+      },
+      "tasting_notes": "Fragrance and aroma of stonefruit, sugarcane, peach, and florals. Notes of florals and peach with an aftertaste of white tea and a sugarcane sweetness. Medium malic and citric acidity with a medium body and creamy mouthfeel.",
+      "roasting_notes": "High density coffee\n\nDense coffees can handle a lot of heat application, and that heat helps build the momentum needed to push through the endothermic reactions of the Maillard and caramelization phases. With so much energy required later in the roast, it can be tempting to hit a dense coffee hard from the very start. However, it is also important that there is enough heat penetration through the coffee seed during drying. If heat doesn’t reach the center of the seed, the interior will be underdeveloped, leaving a cup with astringency and a lack of sweetness, even when the roast data looks right. Starting the roast with a minimal heat application allows heat to move evenly through the seed, while quickly increasing heat application after turnaround builds the energy needed heading into Maillard. This approach provides both adequate heat penetration and enough momentum to develop complex volatiles during Maillard, then carry that energy through caramelization for sweetness and body. The key with dense coffees is to think of the beginning of the roast as preparing the seed and the middle of the roast as driving it forward.\n\nWashed Coffee\n\nStrong heat application heading into Maillard can bring out bright, complex acidity and a clear expression of fruit. The challenge is balancing that acidity with enough sugar development. Stretching out time in caramelization builds sweetness and body, softening sharp acids into rounder fruit notes, while too much time there can mute the acidity that makes washed coffees shine.  How you approach caramelization will have a significant impact on your final cup.  A short time spent in caramelization will preserve complex acidity and florals, while leading to a thinner, more tea-like body.  Stretching out time spent in caramelization will reduce acids, but allow for more sugar and melanoidin (contributes to body) development.  Washed coffees also tend to have a more predictable and audible first crack than naturals or alternatively processed coffees, but it’s worth paying attention to how the coffee behaves after it. Some washed coffees will gently reduce their rate of rise on their own and do best with steady, consistent heat, while others will stall out if heat is pulled back too much and need some continued push to make it through development. In post crack development, a short time (85-100 seconds) will lead to a bright coffee with fresh fruit character and floral notes, with an Agtron color reading of between 90-85. This would commonly be considered a \"light roast.\"  Extending the post crack development (100-150 seconds +) will bring out more notes of chocolate, cooked fruits, nuts, and spice, with an Agtron near the 80-70 mark.  This would lead to a roast that is commonly considered a \"medium roast\".",
+      "story": ""
+    }
+  },
+  "https://haceacoffee.com/products/costa-rica-hacienda-sonora-diego-guardia-honey-natural": {
+    "version": 1,
+    "updated_at": "2026-11-02T06:50:56-08:00",
+    "fetched_at": 1793631096.9764102,
+    "detail": {
+      "specs": {
+        "Country": "Costa Rica",
+        "Region": "Carrillos Alto de Poás, Alajuela, Central Valley",
+        "Farm": "Hacienda Sonora",
+        "Coordinates": "10° 2' 52.0012\" N 84° 15' 37.0004\" W",
+        "Grower": "Alberto and Diego Guardia",
+        "Elevation": "1300 m.a.s.l.",
+        "Variety": "Various (Caturra, Villa Sarchi, Victoria, etc)",
+        "Processing": "Honey/Natural blend",
+        "Harvest date": "March 2026",
+        "Arrival date": "September 2026",
+        "Density": "1.15 g/ml",
+        "Humidity": "10.90%",
+        "Grade": "SHB",
+        "Marks": "005-0025-0237",
+        "Reference ID": "HA-26142-02",
+        "SCI cupping score": "85.00",
+        "Farmer/Grower": "Alberto and Diego Guardia",
+        "Altitude": "1300 m.a.s.l.",
+        "Varieties": "Various (Caturra, Villa Sarchi, Victoria, etc)",
+        "Harvest Date": "March 2026",
+        "Arrival Date": "September 2026",
+        "SCA Cupping Score": "85.00"
+      },
+      "tasting_notes": "Fragrance and aroma of black cherry, plum and cherry. Notes of raisin, green apple and cherry with an aftertaste of milk chocolate and plum and a nougat-like sweetness. Bright malic acidity with a heavy body and syrupy mouthfeel.",
       "roasting_notes": "Coming soon.",
       "story": ""
     }
